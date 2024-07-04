@@ -6,6 +6,11 @@ const prompt = require("prompt-sync")();
 
 //function to generate student marks
 function grade(Studentmarks){
+
+    if (isNaN(Studentmarks) || Studentmarks < 0 || Studentmarks > 100) {
+        console.log("Please enter a valid mark.");
+        return;
+    }
     if (Studentmarks >= 0 && Studentmarks <= 100){
         if (Studentmarks <= 100 && Studentmarks >=79){
             return console.log("Congratulations!! You scored the grade : A")
@@ -24,5 +29,11 @@ function grade(Studentmarks){
         }
     }
 }
-var  Studentmarks = prompt("What was the student's score ");
+
+//prompt the user to enter the student marks.
+
+let Studentmarks = prompt("What was the student's marks: ");
+Studentmarks = parseFloat(Studentmarks);//converts the marks value to a floating point number.
+
+//call on the grade function.
 grade(Studentmarks);
